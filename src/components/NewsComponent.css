@@ -1,0 +1,264 @@
+.news-card {
+  display: flex;
+  margin: 25px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  background: white;
+  color: #333;
+}
+
+.news-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.news-card.hovered {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.image-container {
+  width: 250px;
+  min-width: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.news-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-card.hovered .news-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%);
+}
+
+.content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.title {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  margin: 0 0 15px;
+  line-height: 1.3;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.bookmark-btn, .speak-btn, .share-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #666;
+  transition: all 0.2s ease;
+  padding: 5px;
+}
+
+.bookmark-btn.bookmarked {
+  color: #ff6b6b;
+}
+
+.speak-btn.active {
+  color: #4dabf7;
+}
+
+.bookmark-btn:hover, .speak-btn:hover, .share-btn:hover {
+  color: #333;
+  transform: scale(1.1);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.meta i {
+  margin-right: 5px;
+  color: #6c5ce7;
+}
+
+.description {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.read-more {
+  align-self: flex-start;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  background: #6c5ce7;
+  color: white;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.read-more:hover {
+  background: #5a4dbf;
+}
+
+.share-container {
+  position: relative;
+}
+
+.share-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 10;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.share-options button {
+  background: none;
+  border: none;
+  padding: 5px 10px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.share-options button:hover {
+  background: #f1f3f5;
+}
+
+/* Dark theme */
+.news-card.dark {
+  background: #2d3436;
+  color: #f5f6fa;
+}
+
+.news-card.dark .description {
+  color: #dfe6e9;
+}
+
+.news-card.dark .meta {
+  color: #b2bec3;
+}
+
+.news-card.dark .bookmark-btn,
+.news-card.dark .speak-btn,
+.news-card.dark .share-btn {
+  color: #b2bec3;
+}
+
+.news-card.dark .bookmark-btn:hover,
+.news-card.dark .speak-btn:hover,
+.news-card.dark .share-btn:hover {
+  color: #f5f6fa;
+}
+
+.news-card.dark .share-options {
+  background: #3d484d;
+}
+
+.news-card.dark .share-options button:hover {
+  background: #4a565c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .news-card {
+    flex-direction: column;
+    width: 90% !important;
+  }
+  
+  .image-container {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .header-row {
+    flex-direction: column;
+  }
+  
+  .action-buttons {
+    align-self: flex-end;
+  }
+}
+
+.sentiment {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.tags {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  background: #e0e0e0;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.sentiment-positive {
+  color: green;
+}
+
+.sentiment-negative {
+  color: red;
+}
+
+.sentiment-neutral {
+  color: gray;
+}
+
