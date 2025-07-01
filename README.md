@@ -16,7 +16,9 @@
 ---
 
 ## 📸 Screenshots
+![Screenshot 2025-07-01 152947](https://github.com/user-attachments/assets/a9e6e800-536d-4045-9347-b6959338bd53)
 
+![image](https://github.com/user-attachments/assets/7d7e8f93-0189-4967-8fb3-c7a1dc122e92)
 
 ## 🚀 Getting Started
 
